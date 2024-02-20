@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Frontend Mentor | Multi-step form</title>
+</head>
+
+<body>
+
+    <!-- Sidebar start -->
+
+    <div class="step">
+        <div class="num">
+            <span class="cnum active-progress">1</span>
+            <span class="cnum">2</span>
+            <span class="cnum" id="num3">3</span>
+            <span class="cnum" id="num4">4</span>
+        </div>
+        <div class="steps">
+            <div class="step1">Step 1
+                <h2>Your info</h2>
+            </div>
+
+            <div class="step2">Step 2
+                <h2>Select plan</h2>
+            </div>
+
+            <div class="step3">Step 3
+                <h2>
+                    Add-ons
+                </h2>
+            </div>
+
+            <div class="step4">
+                Step 4
+                <h2>Summary</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar end -->
+
+    <!-- Step 1 start -->
+
+    <div class="pages">
+        <form class="form form-step active-step" id="form1">
+            <div class="info">
+                <h1>
+                    Personal info
+                </h1>
+                <p>
+                    Please provide your name, email address, and phone number.
+                </p>
+            </div>
+            <label for="name">Name</label>
+            <input placeholder="e.g. Stephen King " id="name" required type="text">
+            <div class="error"></div>
+            <label for="email">Email Address</label>
+            <input placeholder=" e.g. stephenking@lorem.com" id="email" type="email" required />
+            <div class="error"></div>
+            <lable for="phone">Phone Number</lable>
+            <input placeholder="e.g. +1 234 567 890" id="phone" type="number" required>
+            <div class="error"></div>
+            <button class="next-btn" type="submit">Next
+                    Step</button>
+        </form>
+
+        <div class="plan form-step ">
+            <div class="plan-header">
+                <h1> Select your plan</h1>
+                <p>You have the option of monthly or yearly billing.</p>
+            </div>
+            <div class="plan-box">
+                <div class="cards arcade selected " id="arcade">
+                    <img src="./assets/images/icon-arcade.svg">
+                    <h4>Arcade</h4>
+                    <p id="mArcade">$9/mo</p>
+                    <span class="free"></span>
+                </div>
+                <div class="cards advanced" id="advanced">
+                    <img src="./assets/images/icon-advanced.svg">
+                    <h4>Advanced</h4>
+                    <p id="mAdvanced">$12/mo</p>
+                    <span class="free"></span>
+                </div>
+                <div class="cards pro" id="pro">
+                    <img src="./assets/images/icon-pro.svg">
+                    <h4>Pro </h4>
+                    <p id="mPro">$15/mo</p>
+                    <strong class="free"></strong>
+                </div>
+                <br>
+
+            </div>
+            <div class="plan-toogle">
+                <span id="Monthly">Monthly</span>
+                <label class="switch">
+                        <input type="checkbox"
+                            checked
+                            onclick="ChangePlan()">
+                        <span class="slider"></span>
+                    </label> <span id="Yearly">Yearly</span>
+            </div>
+            <button class="go-back-btn">Go Back</button>
+            <button class="next-btn" type="submit">Next
+                    Step</button>
+        </div>
+        <!-- Step 2 end -->
+
+        <!-- Step 3 start -->
+
+        <div class="addon form-step">
+            <h1>Pick add-ons</h1>
+            <p>Add-ons help enhance your gaming experience.</p>
+
+            <div class="add-on-list">
+                <div class="list 1"><input class="check-list 1" id="1" type="checkbox">
+                    <div class="list-name">
+                        <h4>Online service</h4>
+                        <p>Access to multiplayer games</p>
+                    </div>
+                    <span>+$1/mo</span></div>
+                <div class="list 2"><input id="2" class="check-list 2" type="checkbox" checked>
+                    <div class="list-name">
+                        <h4>Larger storage</h4>
+                        <p>
+                            Extra 1TB of cloud save
+                        </p>
+                    </div>
+
+                    <span> +$2/mo</span> </div>
+                <div class="list 3" id="3"><input class="check-list 3" type="checkbox" unchecked>
+                    <div class="list-name">
+                        <h4>Customizable Profile</h4>
+                        <p>Custom theme on your profile</p>
+                    </div>
+                    <span> +$2/mo</span></div>
+            </div>
+            <button class="go-back-btn">Go Back</button>
+            <button class="next-btn" type="submit">Next Step</button>
+        </div>
+
+        <div class="summary form-step">
+            <!-- Step 3 end -->
+
+            <!-- Step 4 start -->
+
+            <h1>Finishing up</h1>
+            <p>Double-check everything looks OK before confirming.
+            </p>
+
+            <!-- Dynamically add subscription and add-on selections here -->
+            <div class="total">
+                <span></span>
+            </div>
+            <div class="total-name">Total (per/month) <span id="total">$0</span></div>
+            <!-- Total (per/year) -->
+
+            <button class="go-back-btn">Go Back</button>
+            <button class="confirm-btn" onclick="tankyouPage()">Confirm</button>
+
+            <!-- Step 4 end -->
+
+        </div>
+        <div class="thank-you form-step ">
+            <img src="./assets/images/icon-thank-you.svg">
+            <h1>Thank you!</h1>
+            <p> Thanks for confirming your subscription! We hope you have<br> fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com.</p>
+        </div>
+    </div>
+    <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Yabets
+                Workaferahu</a>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
